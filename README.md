@@ -1,249 +1,110 @@
-<div align="center">
+# Portafolio — Julian Andrés Caracas
 
-# 🚀 Engineering Student Portfolio
+Portafolio web personal de **Julian Andrés Caracas**, Desarrollador de Software e Ingeniero de Sistemas. Sitio bilingüe (ES/EN) con información profesional, experiencia, habilidades, certificados y contacto.
 
-### *Next-Generation Portfolio Template for Tomorrow's Engineers*
+## Enlaces
 
-[![GitHub stars](https://img.shields.io/github/stars/niladri-1/Engineering_Student_Portfolio?style=for-the-badge&logo=github&color=yellow)](https://github.com/niladri-1/Engineering_Student_Portfolio/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/niladri-1/Engineering_Student_Portfolio?style=for-the-badge&logo=github&color=blue)](https://github.com/niladri-1/Engineering_Student_Portfolio/network)
-[![GitHub issues](https://img.shields.io/github/issues/niladri-1/Engineering_Student_Portfolio?style=for-the-badge&logo=github&color=red)](https://github.com/niladri-1/Engineering_Student_Portfolio/issues)
-[![License](https://img.shields.io/github/license/niladri-1/Engineering_Student_Portfolio?style=for-the-badge&logo=mit&color=green)](LICENSE)
+- **GitHub:** [julianandrescaracas0623](https://github.com/julianandrescaracas0623)
+- **LinkedIn:** [Julian Andrés Caracas Sánchez](https://www.linkedin.com/in/julian-andres-caracas-sanchez-23886b237/)
+- **Email:** andrescaracas0623@gmail.com
+- **WhatsApp:** [+57 304 343 2942](https://wa.me/573043432942)
 
-<br>
+## Características
 
-*A sleek, responsive, and futuristic portfolio template crafted for engineering students to showcase their innovation, technical prowess, and groundbreaking projects. Built with cutting-edge web technologies for the digital age.*
+- Diseño responsive con tema oscuro
+- Interfaz bilingüe (español / inglés)
+- Secciones: Inicio, Sobre mí, Educación, Habilidades, Experiencia, Proyectos, Certificados y Contacto
+- Certificados con vista previa, visualización y descarga de PDF
+- Exportación estática (`output: 'export'`) lista para desplegar en GitHub Pages, Vercel, Netlify, etc.
+- Animaciones con Framer Motion y escena 3D en el hero (Three.js / Vanta)
 
-<br>
+## Stack tecnológico
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Click_Here-ff69b4?style=for-the-badge)](https://your-portfolio-demo.vercel.app)
-[![Documentation](https://img.shields.io/badge/📚_Documentation-Read_Now-blue?style=for-the-badge)](https://github.com/niladri-1/Engineering_Student_Portfolio/wiki)
+- **Framework:** Next.js 15 (App Router)
+- **Lenguaje:** TypeScript
+- **Estilos:** Tailwind CSS
+- **UI:** Radix UI + componentes shadcn/ui
+- **Animaciones:** Framer Motion
+- **3D:** Three.js, React Three Fiber, Vanta
 
-</div>
+## Inicio rápido
 
----
+### Requisitos
 
-## ✨ **Core Features**
+- Node.js 18+
+- npm
 
-<div align="center">
-
-| 🎯 **Feature** | 🔧 **Technology** | 📊 **Status** |
-|:---|:---|:---:|
-| **Responsive Design** | CSS Grid + Flexbox | ✅ Active |
-| **Modern Architecture** | Next.js 14 + App Router | ✅ Active |
-| **Type Safety** | TypeScript 5.0+ | ✅ Active |
-| **Styling Framework** | Tailwind CSS 3.0+ | ✅ Active |
-| **Component Library** | Custom React Components | ✅ Active |
-| **Performance Optimization** | Next.js Image + SSG | ✅ Active |
-| **Contact Integration** | Form Handling + API Routes | ✅ Active |
-| **SEO Optimized** | Meta Tags + Structured Data | ✅ Active |
-
-</div>
-
----
-
-## 🛠️ **Technology Stack**
-
-<div align="center">
-
-### **Frontend Technologies**
-![Next.js](https://img.shields.io/badge/Next.js-14.0+-black?style=for-the-badge&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-18.0+-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-### **Development Tools**
-![ESLint](https://img.shields.io/badge/ESLint-8.0+-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
-![PostCSS](https://img.shields.io/badge/PostCSS-8.0+-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white)
-![Git](https://img.shields.io/badge/Git-2.40+-F05032?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-Recommended-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-
-</div>
-
----
-
-## 📁 **Project Architecture**
-
-
-```
-engineer_portfolio/
-├─ app/
-│  ├─ about/
-│  ├─ blog/
-│  ├─ certificates/
-│  ├─ contact/
-│  ├─ education/
-│  ├─ experience/
-│  ├─ projects/
-│  ├─ skills/
-│  ├─ globals.css
-│  ├─ layout.tsx
-│  └─ page.tsx
-├─ components/
-│  ├─ home/
-│  │  ├─ about-preview.tsx
-│  │  ├─ contact-preview.tsx
-│  │  ├─ hero-section.tsx
-│  │  ├─ projects-preview.tsx
-│  │  └─ skills-preview.tsx
-│  ├─ layout/
-│  │  ├─ footer.tsx
-│  │  └─ navbar.tsx
-│  ├─ ui/               # Reusable UI elements
-│  │  ├─ [~50+ custom components like accordion, button, card, toast, etc.]
-│  └─ theme-provider.tsx
-├─ hooks/
-│  └─ use-toast.ts
-├─ lib/
-│  ├─ constants.ts
-│  ├─ motion.ts
-│  └─ utils.ts
-├─ .eslintrc.json
-├─ .gitignore
-├─ components.json
-├─ next-env.d.ts
-├─ next.config.js
-├─ package-lock.json
-├─ package.json
-├─ postcss.config.js
-├─ tailwind.config.ts
-├─ tsconfig.json
-└─ README.md
-
-```
-
-
----
-
-## 🚀 **Quick Start Guide**
-
-<div align="center">
-
-### **Prerequisites**
-![Node.js](https://img.shields.io/badge/Node.js-18.0+-339933?style=flat-square&logo=node.js&logoColor=white)
-![npm](https://img.shields.io/badge/npm-9.0+-CB3837?style=flat-square&logo=npm&logoColor=white)
-![Git](https://img.shields.io/badge/Git-Latest-F05032?style=flat-square&logo=git&logoColor=white)
-
-</div>
-
-### **Installation Steps**
+### Instalación
 
 ```bash
-# 1️⃣ Clone the repository
-git clone https://github.com/niladri-1/Engineering_Student_Portfolio.git
-
-# 2️⃣ Navigate to project directory
+git clone <url-de-tu-repositorio>
 cd Engineering_Student_Portfolio
-
-# 3️⃣ Install dependencies
 npm install
-
-# 4️⃣ Start development server
 npm run dev
-
-# 5️⃣ Open in browser
-# Navigate to http://localhost:3000
 ```
 
----
+Abre [http://localhost:3000](http://localhost:3000) en el navegador.
 
-## 🎨 **Customization Guide**
+### Scripts disponibles
 
-<div align="center">
+| Comando         | Descripción                          |
+| --------------- | ------------------------------------ |
+| `npm run dev`   | Servidor de desarrollo               |
+| `npm run build` | Build de producción (exporta a `out/`) |
+| `npm run start` | Servidor de producción               |
+| `npm run lint`  | Ejecutar ESLint                      |
 
-| 🔧 **Component** | 📍 **Location** | 🎯 **Purpose** |
-|:---|:---|:---|
-| **Personal Info** | `app/page.tsx` | Update your details and bio |
-| **Project Gallery** | `components/Projects.tsx` | Showcase your engineering projects |
-| **Styling Theme** | `tailwind.config.ts` | Customize colors and design |
-| **Static Assets** | `public/` | Replace with your images/icons |
-| **Contact Form** | `components/Contact.tsx` | Configure contact information |
+## Personalización
 
-</div>
+La mayor parte del contenido se configura en un solo archivo:
 
----
+| Qué editar              | Archivo / carpeta                    |
+| ----------------------- | ------------------------------------ |
+| Datos personales        | `lib/constants.ts`                   |
+| Textos de la interfaz   | `lib/i18n/translations.ts`           |
+| Foto de perfil y CV     | `public/profile.jpg`, `public/cv.pdf` |
+| PDFs de certificados    | `public/certificate-files/`          |
+| Colores y tema          | `app/globals.css`, `tailwind.config.ts` |
 
-## 📊 **Performance Metrics**
+Para añadir un certificado con PDF:
 
-<div align="center">
+1. Guarda el archivo en `public/certificate-files/nombre.pdf`
+2. (Opcional) Añade una captura en `public/certificate-files/nombre.jpg`
+3. Agrega la entrada en el array `certificates` de `lib/constants.ts`:
 
-| 📈 **Metric** | 🎯 **Score** | 🏆 **Status** |
-|:---|:---:|:---:|
-| **Lighthouse Performance** | 98/100 | 🟢 Excellent |
-| **Accessibility** | 100/100 | 🟢 Perfect |
-| **Best Practices** | 100/100 | 🟢 Perfect |
-| **SEO** | 100/100 | 🟢 Perfect |
-| **First Contentful Paint** | < 1.2s | 🟢 Fast |
-| **Largest Contentful Paint** | < 2.5s | 🟢 Fast |
+```typescript
+{
+  title: 'Nombre del curso',
+  issuer: 'Institución',
+  date: '2024',
+  pdf: '/certificate-files/nombre.pdf',
+  image: '/certificate-files/nombre.jpg',
+}
+```
 
-</div>
+## Estructura del proyecto
 
----
+```
+app/                  # Páginas (App Router)
+components/           # Componentes React
+  certificates/       # Tarjetas de certificados
+  home/               # Secciones del inicio
+  layout/             # Navbar, footer
+  ui/                 # Componentes reutilizables
+lib/
+  constants.ts        # Datos del portafolio
+  i18n/               # Traducciones ES/EN
+public/               # Assets estáticos (imágenes, PDFs, CV)
+```
 
-## 📦 **Available Scripts**
+## Despliegue
 
-<div align="center">
+El proyecto genera archivos estáticos en la carpeta `out/` al ejecutar `npm run build`. Sube el contenido de `out/` a tu hosting estático preferido.
 
-| 🖥️ **Command** | 🎯 **Description** |
-|:---|:---|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint checks |
-| `npm run type-check` | Run TypeScript checks |
+## Créditos
 
-</div>
+Este portafolio está basado en la plantilla [Engineering Student Portfolio](https://github.com/niladri-1/Engineering_Student_Portfolio) de **Niladri Chatterjee**, licenciada bajo [MIT License](https://opensource.org/licenses/MIT).
 
----
+## Licencia
 
-## 🤝 **Contributing**
-
-<div align="center">
-
-We welcome contributions from the engineering community!
-
-[![Contributors](https://img.shields.io/github/contributors/niladri-1/Engineering_Student_Portfolio?style=for-the-badge&logo=github)](https://github.com/niladri-1/Engineering_Student_Portfolio/graphs/contributors)
-[![Pull Requests](https://img.shields.io/github/issues-pr/niladri-1/Engineering_Student_Portfolio?style=for-the-badge&logo=github)](https://github.com/niladri-1/Engineering_Student_Portfolio/pulls)
-
-[📋 Contributing Guidelines](CONTRIBUTING.md) • [🐛 Report Bug](https://github.com/niladri-1/Engineering_Student_Portfolio/issues/new?assignees=&labels=bug&template=bug_report.md) • [💡 Request Feature](https://github.com/niladri-1/Engineering_Student_Portfolio/issues/new?assignees=&labels=enhancement&template=feature_request.md)
-
-</div>
-
----
-
-## 📄 **License**
-
-<div align="center">
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-</div>
-
----
-
-## 📞 **Contact & Connect**
-
-<div align="center">
-
-### **Niladri Chatterjee**
-*Full Stack Developer & Engineering Student*
-
-<br>
-
-[![Email](https://img.shields.io/badge/📧_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:code.niladri@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/niladri1)
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://niladri1.vercel.app)
-[![GitHub](https://img.shields.io/badge/🐱_GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/niladri-1)
-
-<br>
-
-*"Building the future, one line of code at a time"*
-
----
-
-⭐ **If this project helped you, please consider giving it a star!** ⭐
-
-[![Star this repo](https://img.shields.io/github/stars/niladri-1/Engineering_Student_Portfolio?style=social)](https://github.com/niladri-1/Engineering_Student_Portfolio)
-
-</div>
+El código de la plantilla original se distribuye bajo licencia MIT. Las modificaciones y el contenido personal de este repositorio pertenecen a Julian Andrés Caracas.
