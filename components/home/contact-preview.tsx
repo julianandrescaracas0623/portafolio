@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 
+import { useLanguage } from '@/components/language-provider';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,6 +12,7 @@ import { SectionHeader } from '@/components/ui/section-header';
 import { fadeIn } from '@/lib/motion';
 
 export function ContactPreview() {
+	const { t } = useLanguage();
 	const [formState, setFormState] = useState({
 		name: '',
 		email: '',
@@ -26,7 +28,6 @@ export function ContactPreview() {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		// Form submission would be handled here
 		alert('Form submitted! This is a demo - no actual email is sent.');
 		setFormState({ name: '', email: '', message: '' });
 	};
@@ -35,8 +36,8 @@ export function ContactPreview() {
 		<section className="py-16 md:py-24 bg-muted/30">
 			<div className="container px-4">
 				<SectionHeader
-					title="Get In Touch"
-					description="Interested in working together or have a question? Feel free to reach out!"
+					title={t.contact.title}
+					description={t.contact.previewDescription}
 					className="text-center"
 				/>
 
@@ -51,7 +52,7 @@ export function ContactPreview() {
 						<div>
 							<Input
 								name="name"
-								placeholder="Your Name"
+								placeholder={t.contact.namePlaceholder}
 								value={formState.name}
 								onChange={handleChange}
 								required
@@ -61,7 +62,7 @@ export function ContactPreview() {
 							<Input
 								name="email"
 								type="email"
-								placeholder="Your Email"
+								placeholder={t.contact.emailPlaceholder}
 								value={formState.email}
 								onChange={handleChange}
 								required
@@ -70,7 +71,7 @@ export function ContactPreview() {
 						<div>
 							<Textarea
 								name="message"
-								placeholder="Your Message"
+								placeholder={t.contact.messagePlaceholder}
 								value={formState.message}
 								onChange={handleChange}
 								required
@@ -78,7 +79,7 @@ export function ContactPreview() {
 							/>
 						</div>
 						<Button type="submit" className="w-full">
-							Send Message <Send className="ml-2 h-4 w-4" />
+							{t.common.sendMessage} <Send className="ml-2 h-4 w-4" />
 						</Button>
 					</form>
 				</motion.div>

@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { X, Menu, ChevronDown } from 'lucide-react';
+import { Menu, ChevronDown } from 'lucide-react';
 
-import { siteConfig } from '@/lib/constants';
+import { useLanguage } from '@/components/language-provider';
+import { profile, siteConfig } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import {
 	Sheet,
@@ -20,9 +21,35 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+function LanguageToggle() {
+	const { locale, setLocale } = useLanguage();
+
+	return (
+		<div className="flex items-center gap-1 rounded-md border p-1">
+			<Button
+				size="sm"
+				variant={locale === 'es' ? 'default' : 'ghost'}
+				className="h-7 px-2 text-xs"
+				onClick={() => setLocale('es')}
+			>
+				ES
+			</Button>
+			<Button
+				size="sm"
+				variant={locale === 'en' ? 'default' : 'ghost'}
+				className="h-7 px-2 text-xs"
+				onClick={() => setLocale('en')}
+			>
+				EN
+			</Button>
+		</div>
+	);
+}
+
 export function Navbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const pathname = usePathname();
+	const { t } = useLanguage();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -48,7 +75,7 @@ export function Navbar() {
 							whileHover={{ scale: 1.05 }}
 							className="font-bold text-2xl text-gradient"
 						>
-							Portfolio
+							{profile.initials}
 						</motion.div>
 					</Link>
 					<nav className="hidden md:flex gap-6">
@@ -59,13 +86,12 @@ export function Navbar() {
 								className={`nav-link text-sm font-medium transition-colors hover:text-primary ${pathname === item.href ? 'text-primary active' : 'text-muted-foreground'
 									}`}
 							>
-								{item.title}
+								{t.nav[item.key]}
 							</Link>
 						))}
 					</nav>
 				</div>
 
-				{/* Mobile menu */}
 				<div className="md:hidden">
 					<Sheet>
 						<SheetTrigger asChild>
@@ -77,8 +103,11 @@ export function Navbar() {
 						<SheetContent className="flex flex-col p-6">
 							<div className="flex items-center justify-between mb-8">
 								<Link href="/" className="flex items-center space-x-2">
-									<span className="font-bold text-2xl text-gradient">Portfolio</span>
+									<span className="font-bold text-2xl text-gradient">
+										{profile.initials}
+									</span>
 								</Link>
+								<LanguageToggle />
 							</div>
 							<nav className="flex flex-col gap-4">
 								{siteConfig.mainNav.map((item) => (
@@ -88,7 +117,7 @@ export function Navbar() {
 										className={`text-base font-medium transition-colors hover:text-primary ${pathname === item.href ? 'text-primary' : 'text-muted-foreground'
 											}`}
 									>
-										{item.title}
+										{t.nav[item.key]}
 									</Link>
 								))}
 							</nav>
@@ -96,7 +125,7 @@ export function Navbar() {
 								<DropdownMenu>
 									<DropdownMenuTrigger asChild>
 										<Button variant="outline" className="w-full justify-between">
-											Social Links
+											{t.common.socialLinks}
 											<ChevronDown className="h-4 w-4 ml-2" />
 										</Button>
 									</DropdownMenuTrigger>
@@ -111,11 +140,6 @@ export function Navbar() {
 												LinkedIn
 											</Link>
 										</DropdownMenuItem>
-										<DropdownMenuItem asChild>
-											<Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
-												Twitter
-											</Link>
-										</DropdownMenuItem>
 									</DropdownMenuContent>
 								</DropdownMenu>
 							</div>
@@ -123,10 +147,10 @@ export function Navbar() {
 					</Sheet>
 				</div>
 
-				{/* Desktop actions */}
 				<div className="hidden md:flex items-center gap-4">
+					<LanguageToggle />
 					<Link href="/contact">
-						<Button>Contact Me</Button>
+						<Button>{t.common.contactMe}</Button>
 					</Link>
 				</div>
 			</div>

@@ -1,0 +1,3 @@
+# Coloca aquí los PDFs e imágenes de tus certificados.
+# Ejemplo: diploma-supabase.pdf y diploma-supabase.jpg
+# Luego añade en lib/constants.ts: pdf: '/certificate-files/diploma-supabase.pdf'

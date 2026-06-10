@@ -3,14 +3,16 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { ThemeProvider } from '@/components/theme-provider';
+import { LanguageProvider } from '@/components/language-provider';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
+import { profile } from '@/lib/constants';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Engineering Portfolio',
-	description: 'A professional portfolio website for engineering students.',
+	title: profile.fullName,
+	description: profile.bio.es,
 };
 
 export default function RootLayout({
@@ -19,15 +21,17 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="es" suppressHydrationWarning>
 			<link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/256/12539/12539811.png" type="image/x-icon" />
 			<body className={inter.className}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-					<div className="relative min-h-screen flex flex-col">
-						<Navbar />
-						<main className="flex-grow pt-16">{children}</main>
-						<Footer />
-					</div>
+					<LanguageProvider>
+						<div className="relative min-h-screen flex flex-col">
+							<Navbar />
+							<main className="flex-grow pt-16">{children}</main>
+							<Footer />
+						</div>
+					</LanguageProvider>
 				</ThemeProvider>
 			</body>
 		</html>

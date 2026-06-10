@@ -4,13 +4,17 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 
+import { useLanguage } from '@/components/language-provider';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
+import { profile } from '@/lib/constants';
+import { localized } from '@/lib/i18n/utils';
 import { fadeIn, staggerContainer } from '@/lib/motion';
 
 export default function ContactPage() {
+	const { locale, t } = useLanguage();
 	const [formState, setFormState] = useState({
 		name: '',
 		email: '',
@@ -29,7 +33,6 @@ export default function ContactPage() {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		// Form submission logic would go here
 		console.log('Form submitted:', formState);
 		alert('Message sent successfully!');
 		setFormState({ name: '', email: '', subject: '', message: '' });
@@ -48,9 +51,9 @@ export default function ContactPage() {
 						variants={fadeIn('down', 0.2)}
 						className="text-center mb-12"
 					>
-						<h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
+						<h1 className="text-4xl font-bold mb-4">{t.contact.title}</h1>
 						<p className="text-lg text-muted-foreground">
-							Have a question or want to work together? Feel free to reach out!
+							{t.contact.description}
 						</p>
 					</motion.div>
 
@@ -58,19 +61,21 @@ export default function ContactPage() {
 						<motion.div variants={fadeIn('right', 0.3)}>
 							<Card className="card-gradient h-full">
 								<CardContent className="p-6">
-									<h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
+									<h2 className="text-2xl font-semibold mb-6">{t.contact.info}</h2>
 									<div className="space-y-4">
 										<div className="flex items-center">
 											<Phone className="h-5 w-5 text-primary mr-3" />
-											<p className="text-muted-foreground">+1 234 567 890</p>
+											<p className="text-muted-foreground">{profile.phone}</p>
 										</div>
 										<div className="flex items-center">
 											<Mail className="h-5 w-5 text-primary mr-3" />
-											<p className="text-muted-foreground">contact@example.com</p>
+											<p className="text-muted-foreground">{profile.email}</p>
 										</div>
 										<div className="flex items-center">
 											<MapPin className="h-5 w-5 text-primary mr-3" />
-											<p className="text-muted-foreground">City, Country</p>
+											<p className="text-muted-foreground">
+												{localized(profile.location, locale)}
+											</p>
 										</div>
 									</div>
 								</CardContent>
@@ -81,7 +86,7 @@ export default function ContactPage() {
 							<form onSubmit={handleSubmit} className="space-y-4">
 								<div>
 									<Input
-										placeholder="Your Name"
+										placeholder={t.contact.namePlaceholder}
 										name="name"
 										value={formState.name}
 										onChange={handleChange}
@@ -91,7 +96,7 @@ export default function ContactPage() {
 								<div>
 									<Input
 										type="email"
-										placeholder="Your Email"
+										placeholder={t.contact.emailPlaceholder}
 										name="email"
 										value={formState.email}
 										onChange={handleChange}
@@ -100,7 +105,7 @@ export default function ContactPage() {
 								</div>
 								<div>
 									<Input
-										placeholder="Subject"
+										placeholder={t.contact.subjectPlaceholder}
 										name="subject"
 										value={formState.subject}
 										onChange={handleChange}
@@ -109,7 +114,7 @@ export default function ContactPage() {
 								</div>
 								<div>
 									<Textarea
-										placeholder="Your Message"
+										placeholder={t.contact.messagePlaceholder}
 										name="message"
 										value={formState.message}
 										onChange={handleChange}
@@ -118,7 +123,7 @@ export default function ContactPage() {
 									/>
 								</div>
 								<Button type="submit" className="w-full">
-									Send Message <Send className="ml-2 h-4 w-4" />
+									{t.common.sendMessage} <Send className="ml-2 h-4 w-4" />
 								</Button>
 							</form>
 						</motion.div>

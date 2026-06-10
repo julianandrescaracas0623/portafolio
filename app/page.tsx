@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { useLanguage } from '@/components/language-provider';
 import { HeroSection } from '@/components/home/hero-section';
 import { AboutPreview } from '@/components/home/about-preview';
 import { ProjectsPreview } from '@/components/home/projects-preview';
@@ -11,9 +12,9 @@ import { ContactPreview } from '@/components/home/contact-preview';
 
 export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
+	const { t } = useLanguage();
 
 	useEffect(() => {
-		// Simulate loading time
 		const timer = setTimeout(() => {
 			setIsLoading(false);
 		}, 2000);
@@ -56,7 +57,7 @@ export default function Home() {
 									duration: 1.5
 								}}
 							>
-								Loading...
+								{t.common.loading}
 							</motion.p>
 						</motion.div>
 					</motion.div>
