@@ -7,6 +7,7 @@ import { LanguageProvider } from '@/components/language-provider';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { profile } from '@/lib/constants';
+import { getAssetUrl } from '@/lib/public-url';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,8 +15,8 @@ export const metadata: Metadata = {
 	title: profile.fullName,
 	description: profile.bio.es,
 	icons: {
-		icon: '/images/favicon.png',
-		shortcut: '/images/favicon.png',
+		icon: getAssetUrl('/images/favicon.png'),
+		shortcut: getAssetUrl('/images/favicon.png'),
 	},
 };
 

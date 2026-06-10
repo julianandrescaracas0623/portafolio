@@ -9,6 +9,7 @@ import { useLanguage } from '@/components/language-provider';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { blogPosts } from '@/lib/constants';
+import { getAssetUrl } from '@/lib/public-url';
 import { localized } from '@/lib/i18n/utils';
 import { fadeIn, staggerContainer } from '@/lib/motion';
 
@@ -53,7 +54,7 @@ export default function BlogPage() {
 									<Card className="h-full card-gradient">
 										<div className="relative h-48">
 											<Image
-												src={post.image}
+												src={getAssetUrl(post.image)}
 												alt={localized(post.title, locale)}
 												fill
 												className="object-cover rounded-t-lg"

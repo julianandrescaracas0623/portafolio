@@ -8,6 +8,7 @@ import { useLanguage } from '@/components/language-provider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { profile } from '@/lib/constants';
+import { getAssetUrl } from '@/lib/public-url';
 import { localized } from '@/lib/i18n/utils';
 import { fadeIn, staggerContainer } from '@/lib/motion';
 
@@ -38,7 +39,7 @@ export default function AboutPage() {
 							))}
 						</div>
 						<Button className="mt-6" asChild>
-							<a href={profile.cv} download>
+							<a href={getAssetUrl(profile.cv)} download>
 								{t.common.downloadCv} <ArrowDownCircle className="ml-2 h-4 w-4" />
 							</a>
 						</Button>
@@ -46,7 +47,7 @@ export default function AboutPage() {
 
 					<motion.div variants={fadeIn('left', 0.3)} className="relative h-[500px]">
 						<Image
-							src={profile.image}
+							src={getAssetUrl(profile.image)}
 							alt={profile.fullName}
 							fill
 							className="object-cover rounded-lg"

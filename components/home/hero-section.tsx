@@ -10,6 +10,7 @@ import NET from 'vanta/dist/vanta.net.min';
 import { useLanguage } from '@/components/language-provider';
 import { Button } from '@/components/ui/button';
 import { profile } from '@/lib/constants';
+import { getAssetUrl } from '@/lib/public-url';
 import { localized } from '@/lib/i18n/utils';
 import { fadeIn, staggerContainer } from '@/lib/motion';
 
@@ -97,7 +98,7 @@ export function HeroSection() {
 							</Link>
 						</Button>
 						<Button size="lg" variant="outline" asChild>
-							<a href={profile.cv} download>
+							<a href={getAssetUrl(profile.cv)} download>
 								{t.common.downloadCv} <FileDown className="ml-2 h-4 w-4" />
 							</a>
 						</Button>

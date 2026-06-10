@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Card, CardContent } from '@/components/ui/card';
 import { education, profile } from '@/lib/constants';
+import { getAssetUrl } from '@/lib/public-url';
 import { localized } from '@/lib/i18n/utils';
 import { fadeIn } from '@/lib/motion';
 
@@ -33,7 +34,7 @@ export function AboutPreview() {
 						className="relative h-[400px] rounded-lg overflow-hidden"
 					>
 						<Image
-							src={profile.image}
+							src={getAssetUrl(profile.image)}
 							alt={profile.fullName}
 							fill
 							className="object-cover"

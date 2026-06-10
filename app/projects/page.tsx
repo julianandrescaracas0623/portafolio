@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { projects } from '@/lib/constants';
+import { getAssetUrl } from '@/lib/public-url';
 import { localized } from '@/lib/i18n/utils';
 import { staggerContainer, fadeInScale } from '@/lib/motion';
 
@@ -55,7 +56,7 @@ export default function ProjectsPage() {
 									<Card className="flex flex-col h-full card-gradient">
 										<div className="relative h-48 w-full">
 											<Image
-												src={project.image}
+												src={getAssetUrl(project.image)}
 												alt={localized(project.title, locale)}
 												fill
 												className="object-cover rounded-t-lg"
