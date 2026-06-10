@@ -97,9 +97,43 @@ lib/
 public/               # Assets estáticos (imágenes, PDFs, CV)
 ```
 
-## Despliegue
+## Despliegue en GitHub Pages
 
-El proyecto genera archivos estáticos en la carpeta `out/` al ejecutar `npm run build`. Sube el contenido de `out/` a tu hosting estático preferido.
+**Sitio en vivo:** [https://julianandrescaracas0623.github.io/portafolio/](https://julianandrescaracas0623.github.io/portafolio/)
+
+El despliegue es automático con GitHub Actions en cada push a `main`.
+
+### Configuración inicial (una sola vez)
+
+1. Sube el código a [github.com/julianandrescaracas0623/portafolio](https://github.com/julianandrescaracas0623/portafolio)
+2. Ve a **Settings → Pages**
+3. En **Build and deployment → Source**, selecciona **GitHub Actions**
+4. El workflow `.github/workflows/deploy.yml` se ejecutará automáticamente
+
+El primer despliegue puede tardar entre 2 y 5 minutos. Puedes ver el progreso en la pestaña **Actions** del repositorio.
+
+### Build local (simular GitHub Pages)
+
+```bash
+# Windows PowerShell
+$env:GITHUB_PAGES='true'; npm run build
+
+# Linux / macOS
+GITHUB_PAGES=true npm run build
+```
+
+Esto genera la carpeta `out/` con `basePath` `/portafolio`, igual que en producción.
+
+### Entorno del workflow
+
+| Componente | Versión |
+| ---------- | ------- |
+| Runner     | `ubuntu-24.04` |
+| Node.js    | `22` (LTS) |
+
+## Despliegue en otros hosts
+
+El proyecto genera archivos estáticos en la carpeta `out/` al ejecutar `npm run build`. Para Vercel u otros hosts sin subruta, usa `npm run build` sin la variable `GITHUB_PAGES`.
 
 ## Créditos
 
