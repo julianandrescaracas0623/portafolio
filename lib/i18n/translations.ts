@@ -31,7 +31,7 @@ const translations = {
 		},
 		about: {
 			title: 'Sobre mí',
-			myJourney: 'Mi trayectoria',
+			myJourney: 'Lo que me impulsa',
 			education: 'Educación',
 			experience: 'Experiencia',
 			skills: 'Habilidades',
@@ -147,7 +147,7 @@ const translations = {
 		},
 		about: {
 			title: 'About Me',
-			myJourney: 'My Journey',
+			myJourney: 'What Drives Me',
 			education: 'Education',
 			experience: 'Experience',
 			skills: 'Skills',

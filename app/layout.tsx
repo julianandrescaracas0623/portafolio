@@ -13,6 +13,10 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
 	title: profile.fullName,
 	description: profile.bio.es,
+	icons: {
+		icon: '/images/favicon.png',
+		shortcut: '/images/favicon.png',
+	},
 };
 
 export default function RootLayout({
@@ -22,7 +26,6 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="es" suppressHydrationWarning>
-			<link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/256/12539/12539811.png" type="image/x-icon" />
 			<body className={inter.className}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
 					<LanguageProvider>
