@@ -46,7 +46,7 @@ export function ProjectsPreview() {
 						initial="hidden"
 						whileInView="show"
 						viewport={{ once: true }}
-						className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"
+						className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10"
 					>
 						{previewProjects.map((project, index) => (
 							<motion.div
@@ -64,8 +64,8 @@ export function ProjectsPreview() {
 											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 										/>
 									</div>
-									<CardContent className="flex-grow p-6">
-										<h3 className="font-bold text-xl mb-2">
+									<CardContent className="flex-grow p-4 sm:p-6">
+										<h3 className="font-bold text-lg sm:text-xl mb-2">
 											{localized(project.title, locale)}
 										</h3>
 										<p className="text-muted-foreground mb-4">
@@ -79,9 +79,9 @@ export function ProjectsPreview() {
 											))}
 										</div>
 									</CardContent>
-									<CardFooter className="p-6 pt-0 gap-2">
+									<CardFooter className="flex-col sm:flex-row p-4 sm:p-6 pt-0 gap-2">
 										{project.link && (
-											<Button size="sm" variant="outline" asChild>
+											<Button size="sm" variant="outline" asChild className="w-full sm:flex-1">
 												<Link href={project.link} target="_blank" rel="noreferrer">
 													<ExternalLink className="h-4 w-4 mr-2" />
 													Demo
@@ -89,7 +89,7 @@ export function ProjectsPreview() {
 											</Button>
 										)}
 										{project.repo && (
-											<Button size="sm" variant="outline" asChild>
+											<Button size="sm" variant="outline" asChild className="w-full sm:flex-1">
 												<Link href={project.repo} target="_blank" rel="noreferrer">
 													<Github className="h-4 w-4 mr-2" />
 													Repo

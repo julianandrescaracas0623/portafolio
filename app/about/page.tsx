@@ -45,7 +45,7 @@ export default function AboutPage() {
 						</Button>
 					</motion.div>
 
-					<motion.div variants={fadeIn('left', 0.3)} className="relative h-[500px]">
+					<motion.div variants={fadeIn('left', 0.3)} className="relative h-[320px] sm:h-[420px] lg:h-[500px]">
 						<Image
 							src={getAssetUrl(profile.image)}
 							alt={profile.fullName}

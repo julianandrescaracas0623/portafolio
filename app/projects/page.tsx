@@ -29,8 +29,8 @@ export default function ProjectsPage() {
 						variants={fadeInScale(0.2)}
 						className="text-center mb-12"
 					>
-						<h1 className="text-4xl font-bold mb-4">{t.projects.title}</h1>
-						<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+						<h1 className="text-3xl sm:text-4xl font-bold mb-4">{t.projects.title}</h1>
+						<p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
 							{t.projects.description}
 						</p>
 					</motion.div>
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
 							</p>
 						</motion.div>
 					) : (
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 							{projects.map((project, index) => (
 								<motion.div
 									key={index}
@@ -63,8 +63,8 @@ export default function ProjectsPage() {
 												sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 											/>
 										</div>
-										<CardContent className="flex-grow p-6">
-											<h3 className="font-bold text-xl mb-2">
+										<CardContent className="flex-grow p-4 sm:p-6">
+											<h3 className="font-bold text-lg sm:text-xl mb-2">
 												{localized(project.title, locale)}
 											</h3>
 											<p className="text-muted-foreground mb-4">
@@ -78,9 +78,9 @@ export default function ProjectsPage() {
 												))}
 											</div>
 										</CardContent>
-										<CardFooter className="p-6 pt-0 gap-2">
+										<CardFooter className="flex-col sm:flex-row p-4 sm:p-6 pt-0 gap-2">
 											{project.link && (
-												<Button size="sm" variant="outline" asChild>
+												<Button size="sm" variant="outline" asChild className="w-full sm:flex-1">
 													<Link href={project.link} target="_blank" rel="noreferrer">
 														<ExternalLink className="h-4 w-4 mr-2" />
 														Demo
@@ -88,7 +88,7 @@ export default function ProjectsPage() {
 												</Button>
 											)}
 											{project.repo && (
-												<Button size="sm" variant="outline" asChild>
+												<Button size="sm" variant="outline" asChild className="w-full sm:flex-1">
 													<Link href={project.repo} target="_blank" rel="noreferrer">
 														<Github className="h-4 w-4 mr-2" />
 														Repo

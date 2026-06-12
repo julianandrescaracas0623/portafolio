@@ -48,8 +48,13 @@ function LanguageToggle() {
 
 export function Navbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
+	const [mobileOpen, setMobileOpen] = useState(false);
 	const pathname = usePathname();
 	const { t } = useLanguage();
+
+	useEffect(() => {
+		setMobileOpen(false);
+	}, [pathname]);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -93,35 +98,38 @@ export function Navbar() {
 				</div>
 
 				<div className="md:hidden">
-					<Sheet>
+					<Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
 						<SheetTrigger asChild>
-							<Button variant="ghost" size="icon">
+							<Button variant="ghost" size="icon" aria-label="Abrir menú">
 								<Menu className="h-5 w-5" />
-								<span className="sr-only">Toggle menu</span>
 							</Button>
 						</SheetTrigger>
-						<SheetContent className="flex flex-col p-6">
+						<SheetContent side="right" className="flex w-[min(100vw-2rem,20rem)] flex-col p-6">
 							<div className="flex items-center justify-between mb-8">
-								<Link href="/" className="flex items-center space-x-2">
+								<Link href="/" className="flex items-center space-x-2" onClick={() => setMobileOpen(false)}>
 									<span className="font-bold text-2xl text-gradient">
 										{profile.initials}
 									</span>
 								</Link>
 								<LanguageToggle />
 							</div>
-							<nav className="flex flex-col gap-4">
+							<nav className="flex flex-col gap-1">
 								{siteConfig.mainNav.map((item) => (
 									<Link
 										key={item.href}
 										href={item.href}
-										className={`text-base font-medium transition-colors hover:text-primary ${pathname === item.href ? 'text-primary' : 'text-muted-foreground'
+										onClick={() => setMobileOpen(false)}
+										className={`rounded-md px-3 py-3 text-base font-medium transition-colors hover:bg-muted hover:text-primary ${pathname === item.href ? 'text-primary bg-muted/50' : 'text-muted-foreground'
 											}`}
 									>
 										{t.nav[item.key]}
 									</Link>
 								))}
 							</nav>
-							<div className="mt-auto pt-4">
+							<div className="mt-6 flex flex-col gap-3">
+								<Link href="/contact" onClick={() => setMobileOpen(false)}>
+									<Button className="w-full">{t.common.contactMe}</Button>
+								</Link>
 								<DropdownMenu>
 									<DropdownMenuTrigger asChild>
 										<Button variant="outline" className="w-full justify-between">
@@ -129,7 +137,7 @@ export function Navbar() {
 											<ChevronDown className="h-4 w-4 ml-2" />
 										</Button>
 									</DropdownMenuTrigger>
-									<DropdownMenuContent align="end">
+									<DropdownMenuContent align="end" className="w-[var(--radix-dropdown-menu-trigger-width)]">
 										<DropdownMenuItem asChild>
 											<Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
 												GitHub

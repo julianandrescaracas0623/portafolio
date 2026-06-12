@@ -31,7 +31,7 @@ export function AboutPreview() {
 						initial="hidden"
 						whileInView="show"
 						viewport={{ once: true }}
-						className="relative h-[400px] rounded-lg overflow-hidden"
+						className="relative h-[280px] sm:h-[350px] md:h-[400px] rounded-lg overflow-hidden"
 					>
 						<Image
 							src={getAssetUrl(profile.image)}

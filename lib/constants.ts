@@ -32,9 +32,9 @@ export const profile = {
 	image: '/images/FOTO_DEV.png',
 	cv: '/cv.pdf',
 	stats: {
-		experienceYears: '3+',
-		certificationsCount: '12',
-		projectsCount: '0',
+		experienceYears: '1+',
+		certificationsCount: '7',
+		projectsCount: '2',
 	},
 };
 
@@ -178,7 +178,36 @@ export type Project = {
 	repo?: string;
 };
 
-export const projects: Project[] = [];
+export const projects: Project[] = [
+	{
+		title: {
+			es: 'Sistema de Gestión Documental',
+			en: 'Document Management System',
+		},
+		description: {
+			es: 'Plataforma web Saas (Software as a Service) para digitalizar, organizar y gestionar documentos administrativos, con autenticación, roles, categorías y almacenamiento seguro (Supabase).',
+			en: 'Web platform Saas (Software as a Service) to digitize, organize, and manage administrative documents, with authentication, roles, categories, and secure storage (Supabase).',
+		},
+		image: '/project-images/portada_gestion_documental.png',
+		tags: ['Next.js', 'Supabase', 'PostgreSQL + Storage', 'Tailwind CSS', 'shadcn/ui',],
+		repo: 'https://julianandrescaracas0623.github.io/sistema-de-gestion-documental/',
+		link: 'https://sistema-de-gestion-documental.vercel.app/login',
+	},
+	{
+		title: {
+			es: 'Laboratorio Practico CI/CD con GitHub Actions',
+			en: 'Practical CI/CD Lab with GitHub Actions',
+		},
+		description: {
+			es: 'Repositorio de aprendizaje para CI/CD con GitHub Actions. No incluye código de aplicación el contenido del laboratorio son los workflows',
+			en: 'Learning repository for CI/CD with GitHub Actions. Does not include application code the contents of the lab are the workflows',
+		},
+		image: '/project-images/cicd-github-actions.svg',
+		tags: ['GitHub Actions', 'CI/CD', 'YAML', 'DevOps'],
+		repo: 'https://github.com/julianandrescaracas0623/CI_CD_GITHUB_ACTIONS',
+		link: 'https://github.com/julianandrescaracas0623/CI_CD_GITHUB_ACTIONS/actions',
+	},
+];
 
 export type Education = {
 	degree: LocalizedString;
@@ -268,46 +297,63 @@ export type Certificate = {
 	title: string;
 	issuer: string;
 	date?: string;
+	description?: LocalizedString;
 	pdf?: string;
 	image?: string;
 };
 
-// Para cada certificado:
-// 1. PDF → public/certificate-files/nombre.pdf
-// 2. Captura PNG/JPG del diploma → public/certificate-files/nombre.jpg
-// 3. Añadir pdf e image en la entrada
 export const certificates: Certificate[] = [
+	{
+		title: 'Primer Hackathon de Inteligencia Artificial en Cartago',
+		issuer: 'Tinku',
+		pdf: '/certificate-files/tinku.pdf',
+		image: '/images/tinku.png',
+		description: {
+			es: 'Creación de soluciones con Inteligencia Artificial para un desafío empresarial real de Techos Rentables.',
+			en: 'Creation of solutions with Artificial Intelligence for a real business challenge of Techos Rentables.',
+		},
+	},
 	{
 		title: 'Supabase',
 		issuer: 'Platzi',
 		pdf: '/certificate-files/diploma-supabase.pdf',
-		image: '/certificate-files/diploma-supabase.jpg',
+		image: '/images/diploma-supabase.jpg',
+		description: {
+			es: 'Bases de datos, autenticación y Backend con Supabase.',
+			en: 'Databases, authentication, and Backend with Supabase.',
+		},
 	},
-	{ 	title: 'Fundamentos de Arquitectura de Software',
- 	    issuer: 'Platzi',
-		pdf:'',
-		image: '',
-    },
-	{ 	title: 'Fundamentos de Seguridad de la Información', 
+	{
+		title: 'Fundamentos de Arquitectura de Software',
+		issuer: 'Platzi',
+		pdf: '/certificate-files/diploma-fundamentos-arquitectura-software.pdf',
+		image: '/images/arquitectura.jpg',
+	},
+	{
+		title: 'Protección Integral de la Información',
 		issuer: 'Cotecnova',
-		pdf: '',
-		image: '',
+		pdf: '/certificate-files/proteccion_de_informacion.pdf',
+		image: '/images/proteccion_de_informacion.jpeg',
 	},
-	{ 	title: 'Fundamentos de Ingeniería de Software',
+	{
+		title: 'Fundamentos de Ingeniería de Software',
 		issuer: 'Platzi',
-		pdf: '',
-		image: '',
-	 },
-	{ 	title: 'Introducción al Desarrollo Backend', 
+		pdf: '/certificate-files/diploma-ingenieria.pdf',
+		image: '/images/ing_de_software.jpg',
+	},
+	{
+		title: 'Introducción al Desarrollo Backend',
 		issuer: 'Platzi',
-		pdf: '',
-		image: '',
-	 },
-	{ 	title: 'Scrum Foundation Professional Certificate',
+		pdf: '/certificate-files/diploma-backend.pdf',
+		image: '/images/desarrolla_backend.jpg',
+	},
+	{
+		title: 'Scrum Foundation Professional Certificate',
 		issuer: 'CertiProf',
-		pdf: '',
-		image: '',
-	 },
+		pdf: '/certificate-files/Certificate.pdf',
+		image: '/images/scrum.jpg',
+	},
+	
 ];
 
 export type Skill = {

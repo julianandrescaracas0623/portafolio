@@ -8,6 +8,7 @@ import { useLanguage } from '@/components/language-provider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import type { Certificate } from '@/lib/constants';
+import { localized } from '@/lib/i18n/utils';
 import { getAssetUrl, getDownloadFilename } from '@/lib/public-url';
 
 function getIssuerInitials(issuer: string): string {
@@ -68,7 +69,7 @@ function CertificatePreview({
 }
 
 export function CertificateCard({ cert }: { cert: Certificate }) {
-	const { t } = useLanguage();
+	const { locale, t } = useLanguage();
 	const pdfUrl = cert.pdf ? getAssetUrl(cert.pdf) : undefined;
 	const downloadName = cert.pdf ? getDownloadFilename(cert.pdf) : undefined;
 
@@ -78,9 +79,14 @@ export function CertificateCard({ cert }: { cert: Certificate }) {
 				<CertificatePreview cert={cert} alt={cert.title} pdfUrl={pdfUrl} />
 			</div>
 
-			<CardContent className="flex-grow p-6">
+			<CardContent className="flex-grow p-4 sm:p-6">
 				<h2 className="text-xl font-semibold mb-1">{cert.title}</h2>
 				<p className="text-primary text-sm font-medium">{cert.issuer}</p>
+				{cert.description && (
+					<p className="text-sm text-muted-foreground mt-2">
+						{localized(cert.description, locale)}
+					</p>
+				)}
 				{cert.date && (
 					<p className="text-sm text-muted-foreground mt-2">
 						{t.certificates.issued}: {cert.date}
@@ -92,14 +98,14 @@ export function CertificateCard({ cert }: { cert: Certificate }) {
 			</CardContent>
 
 			{pdfUrl && downloadName && (
-				<CardFooter className="p-6 pt-0 gap-2">
-					<Button size="sm" variant="outline" asChild className="flex-1 hover:bg-primary hover:text-primary-foreground">
+				<CardFooter className="flex-col sm:flex-row p-4 sm:p-6 pt-0 gap-2">
+					<Button size="sm" variant="outline" asChild className="w-full sm:flex-1 hover:bg-primary hover:text-primary-foreground">
 						<a href={pdfUrl} target="_blank" rel="noopener noreferrer">
 							<ExternalLink className="h-4 w-4 mr-2" />
 							{t.certificates.view}
 						</a>
 					</Button>
-					<Button size="sm" variant="outline" asChild className="flex-1 hover:bg-primary hover:text-primary-foreground">
+					<Button size="sm" variant="outline" asChild className="w-full sm:flex-1 hover:bg-primary hover:text-primary-foreground">
 						<a href={pdfUrl} download={downloadName}>
 							<FileDown className="h-4 w-4 mr-2" />
 							{t.certificates.download}

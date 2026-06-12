@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#23153c"/>
+      <stop offset="100%" style="stop-color:#1a1028"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="515" rx="16" fill="#2a1a42" stroke="#ff3f81" stroke-width="2" opacity="0.9"/>
+  <rect x="120" y="140" width="320" height="24" rx="4" fill="#ff3f81" opacity="0.8"/>
+  <rect x="120" y="200" width="960" height="12" rx="4" fill="#ffffff" opacity="0.15"/>
+  <rect x="120" y="230" width="720" height="12" rx="4" fill="#ffffff" opacity="0.1"/>
+  <rect x="120" y="290" width="280" height="180" rx="8" fill="#ff3f81" opacity="0.2"/>
+  <rect x="420" y="290" width="280" height="180" rx="8" fill="#ff3f81" opacity="0.15"/>
+  <rect x="720" y="290" width="360" height="180" rx="8" fill="#ff3f81" opacity="0.1"/>
+  <text x="600" y="560" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="28" font-weight="600">Sistema de Gesti�n Documental</text>
+  <text x="600" y="595" text-anchor="middle" fill="#ff3f81" font-family="system-ui,sans-serif" font-size="18">Next.js � Supabase � TypeScript</text>
+</svg>
