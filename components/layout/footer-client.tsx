@@ -89,7 +89,7 @@ export function FooterClient() {
 
 				<Separator className="my-8" />
 
-				<div className="flex flex-col sm:flex-row items-center justify-between text-sm">
+				<div className="flex justify-center text-center text-sm">
 					<p className="text-muted-foreground">
 						© {currentYear}. {t.footer.rights}
 					</p>
