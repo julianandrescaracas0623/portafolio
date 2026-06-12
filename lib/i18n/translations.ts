@@ -107,8 +107,6 @@ const translations = {
 				'¿Interesado en colaborar o tienes alguna pregunta? ¡Escríbeme!',
 		},
 		footer: {
-			description:
-				'Portafolio profesional con habilidades, experiencia y certificaciones en tecnología.',
 			about: 'Sobre mi',
 			work: 'Trabajo',
 			connect: 'Conectar',
@@ -223,8 +221,6 @@ const translations = {
 				'Interested in working together or have a question? Feel free to reach out!',
 		},
 		footer: {
-			description:
-				'Professional portfolio showcasing skills, experience, and certifications in technology.',
 			about: 'About',
 			work: 'Work',
 			connect: 'Connect',

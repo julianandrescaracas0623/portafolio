@@ -54,10 +54,7 @@ export function FooterClient() {
 			<div className="container px-4 mx-auto">
 				<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 					<div className="md:col-span-1">
-						<p className="text-sm text-muted-foreground">
-							{t.footer.description}
-						</p>
-						<div className="mt-6 flex flex-wrap gap-3">
+						<div className="flex flex-wrap gap-3">
 							{socialLinks.map((link, index) => (
 								<Button key={index} size="icon" variant="outline" asChild>
 									<Link href={link.href} aria-label={link.label} target="_blank" rel="noreferrer">

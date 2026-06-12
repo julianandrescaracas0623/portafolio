@@ -38,7 +38,7 @@ export function ContactPreview() {
 				<SectionHeader
 					title={t.contact.title}
 					description={t.contact.previewDescription}
-					className="text-center"
+					centered
 				/>
 
 				<motion.div
