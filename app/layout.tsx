@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Outfit, Source_Sans_3 } from 'next/font/google';
 
 import { ThemeProvider } from '@/components/theme-provider';
 import { LanguageProvider } from '@/components/language-provider';
@@ -9,7 +9,17 @@ import { Footer } from '@/components/layout/footer';
 import { profile } from '@/lib/constants';
 import { getAssetUrl } from '@/lib/public-url';
 
-const inter = Inter({ subsets: ['latin'] });
+const outfit = Outfit({
+	subsets: ['latin'],
+	variable: '--font-display',
+	display: 'swap',
+});
+
+const sourceSans = Source_Sans_3({
+	subsets: ['latin'],
+	variable: '--font-sans',
+	display: 'swap',
+});
 
 export const metadata: Metadata = {
 	title: profile.fullName,
@@ -27,7 +37,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="es" suppressHydrationWarning>
-			<body className={inter.className}>
+			<body className={`${outfit.variable} ${sourceSans.variable} font-sans`}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
 					<LanguageProvider>
 						<div className="relative min-h-screen flex flex-col">
