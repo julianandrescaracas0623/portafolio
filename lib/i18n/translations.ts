@@ -11,6 +11,8 @@ const translations = {
 			projects: 'Proyectos',
 			certificates: 'Certificados',
 			contact: 'Contacto',
+			more: 'Más',
+			menu: 'Menú',
 		},
 		common: {
 			contactMe: 'Contáctame',
@@ -125,6 +127,8 @@ const translations = {
 			projects: 'Projects',
 			certificates: 'Certificates',
 			contact: 'Contact',
+			more: 'More',
+			menu: 'Menu',
 		},
 		common: {
 			contactMe: 'Contact Me',
