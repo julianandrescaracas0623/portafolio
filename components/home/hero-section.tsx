@@ -39,8 +39,8 @@ export function HeroSection() {
 				minWidth: 200.0,
 				scale: 0.8,
 				scaleMobile: 0.8,
-				color: 0xff3f81,
-				backgroundColor: 0x23153c,
+				color: 0x1fa889,
+				backgroundColor: 0x0a0a12,
 				points: 10.0,
 				maxDistance: 15.0,
 				spacing: 20.0,
@@ -57,10 +57,18 @@ export function HeroSection() {
 		<section className="relative overflow-hidden">
 			<div
 				ref={vantaRef}
-				className="absolute inset-0 z-0 hidden opacity-60 md:block"
+				className="absolute inset-0 z-0 hidden opacity-50 md:block"
 				aria-hidden="true"
 			/>
-			<div className="absolute inset-0 z-0 bg-gradient-to-br from-[#23153c] via-background to-background md:hidden" aria-hidden="true" />
+			<div
+				className="absolute inset-0 z-0 bg-gradient-to-br from-[#0d2a24] via-background to-background md:hidden"
+				aria-hidden="true"
+			/>
+			{/* Soft scrim so muted text stays readable over the net */}
+			<div
+				className="absolute inset-0 z-[1] hidden bg-background/25 md:block"
+				aria-hidden="true"
+			/>
 
 			<div className="container relative z-10 px-4 py-16 sm:py-20 md:py-32 flex flex-col items-center justify-center min-h-[75vh] sm:min-h-[85vh] md:min-h-[90vh]">
 				<motion.div
@@ -71,21 +79,23 @@ export function HeroSection() {
 				>
 					<motion.h1
 						variants={fadeIn('up', 0.2)}
-						className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gradient"
+						className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gradient"
 					>
 						{profile.fullName}
 					</motion.h1>
 
 					<motion.div
 						variants={fadeIn('up', 0.3)}
-						className="mt-6 flex flex-wrap justify-center items-center gap-2 px-2"
+						className="mt-6 flex flex-wrap justify-center items-center gap-x-3 gap-y-1 px-2"
 					>
 						{roles.map((role, index) => (
-							<span key={role} className="flex items-center gap-2">
+							<span key={role} className="flex items-center gap-x-3">
 								{index > 0 && (
-									<span className="hidden sm:inline text-muted-foreground/60 text-lg">|</span>
+									<span className="text-muted-foreground/50" aria-hidden="true">
+										|
+									</span>
 								)}
-								<span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm font-medium text-primary">
+								<span className="text-sm sm:text-base font-medium text-muted-foreground">
 									{role}
 								</span>
 							</span>
