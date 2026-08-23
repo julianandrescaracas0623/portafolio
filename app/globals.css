@@ -66,9 +66,13 @@
 		@apply border-border;
 	}
 
-		body {
-		@apply bg-background text-foreground overflow-x-hidden;
+	body {
+		@apply bg-background text-foreground overflow-x-hidden font-sans;
 		font-feature-settings: "rlig" 1, "calt" 1;
+	}
+
+	.font-display {
+		font-family: var(--font-display), system-ui, sans-serif;
 	}
 }
 
@@ -102,11 +106,6 @@
 	@apply absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-1000;
 }
 
-/* Three.js canvas */
-.canvas-container {
-	@apply h-[50vh] w-full sm:h-[70vh] md:h-[80vh] lg:h-screen;
-}
-
 .nav-link {
 	@apply relative;
 }
@@ -135,11 +134,11 @@
 }
 
 .text-gradient {
-	@apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+	@apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
 }
 
 .section-title {
-	@apply text-3xl font-bold mb-8 inline-block;
+	@apply font-display text-3xl font-bold mb-8 inline-block;
 }
 
 .section-title-center {
