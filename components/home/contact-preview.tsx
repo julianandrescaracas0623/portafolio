@@ -33,7 +33,7 @@ export function ContactPreview() {
 	};
 
 	return (
-		<section className="py-16 md:py-24 bg-muted/30">
+		<section className="py-12 md:py-16 xl:py-20 bg-muted/30">
 			<div className="container px-4">
 				<SectionHeader
 					title={t.contact.title}

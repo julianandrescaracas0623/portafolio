@@ -10,7 +10,7 @@ export default function SkillsPage() {
 	const { t } = useLanguage();
 
 	return (
-		<div className="py-16 md:py-24">
+		<div className="py-12 md:py-16 xl:py-20">
 			<div className="container">
 				<motion.div
 					variants={staggerContainer()}

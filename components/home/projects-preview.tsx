@@ -20,7 +20,7 @@ export function ProjectsPreview() {
 	const previewProjects = projects.slice(0, 3);
 
 	return (
-		<section className="py-16 md:py-24 bg-muted/30">
+		<section className="py-12 md:py-16 xl:py-20 bg-muted/30">
 			<div className="container px-4">
 				<SectionHeader
 					title={t.projects.featuredTitle}
@@ -65,7 +65,7 @@ export function ProjectsPreview() {
 										/>
 									</div>
 									<CardContent className="flex-grow p-4 sm:p-6">
-										<h3 className="font-bold text-lg sm:text-xl mb-2">
+										<h3 className="font-bold text-lg sm:text-xl lg:text-2xl mb-2">
 											{localized(project.title, locale)}
 										</h3>
 										<p className="text-muted-foreground mb-4">

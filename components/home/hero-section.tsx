@@ -75,11 +75,11 @@ export function HeroSection() {
 					variants={staggerContainer()}
 					initial="hidden"
 					animate="show"
-					className="max-w-4xl mx-auto text-center"
+					className="max-w-5xl lg:max-w-6xl 2xl:max-w-7xl mx-auto text-center"
 				>
 					<motion.h1
 						variants={fadeIn('up', 0.2)}
-						className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gradient"
+						className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] 2xl:text-8xl font-bold tracking-tight text-gradient"
 					>
 						{profile.fullName}
 					</motion.h1>
@@ -95,7 +95,7 @@ export function HeroSection() {
 										|
 									</span>
 								)}
-								<span className="text-sm sm:text-base font-medium text-muted-foreground">
+								<span className="text-sm sm:text-base lg:text-lg xl:text-xl font-medium text-muted-foreground">
 									{role}
 								</span>
 							</span>
@@ -104,7 +104,7 @@ export function HeroSection() {
 
 					<motion.p
 						variants={fadeIn('up', 0.5)}
-						className="mt-8 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto px-2"
+						className="mt-8 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[1.75rem] 2xl:text-3xl text-muted-foreground max-w-3xl lg:max-w-4xl mx-auto px-2"
 					>
 						{localized(profile.tagline, locale)}
 					</motion.p>

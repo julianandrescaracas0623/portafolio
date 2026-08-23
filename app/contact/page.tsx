@@ -39,7 +39,7 @@ export default function ContactPage() {
 	};
 
 	return (
-		<div className="py-16 md:py-24">
+		<div className="py-12 md:py-16 xl:py-20">
 			<div className="container">
 				<motion.div
 					variants={staggerContainer()}

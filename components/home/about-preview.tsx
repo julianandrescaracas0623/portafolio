@@ -18,7 +18,7 @@ export function AboutPreview() {
 	const { locale, t } = useLanguage();
 
 	return (
-		<section className="py-16 md:py-24">
+		<section className="py-12 md:py-16 xl:py-20">
 			<div className="container px-4">
 				<SectionHeader
 					title={t.about.title}
@@ -58,7 +58,7 @@ export function AboutPreview() {
 							<Card className="card-gradient">
 								<CardContent className="p-4">
 									<h4 className="font-semibold">{t.about.education}</h4>
-									<p className="text-sm text-muted-foreground">
+									<p className="text-sm lg:text-base text-muted-foreground">
 										{localized(education[0].degree, locale)}
 									</p>
 								</CardContent>
@@ -66,7 +66,7 @@ export function AboutPreview() {
 							<Card className="card-gradient">
 								<CardContent className="p-4">
 									<h4 className="font-semibold">{t.about.experience}</h4>
-									<p className="text-sm text-muted-foreground">
+									<p className="text-sm lg:text-base text-muted-foreground">
 										{profile.stats.experienceYears} {t.about.yearsExperience}
 									</p>
 								</CardContent>
@@ -74,7 +74,7 @@ export function AboutPreview() {
 							<Card className="card-gradient">
 								<CardContent className="p-4">
 									<h4 className="font-semibold">{t.about.projects}</h4>
-									<p className="text-sm text-muted-foreground">
+									<p className="text-sm lg:text-base text-muted-foreground">
 										{profile.stats.projectsCount}
 									</p>
 								</CardContent>
@@ -82,7 +82,7 @@ export function AboutPreview() {
 							<Card className="card-gradient">
 								<CardContent className="p-4">
 									<h4 className="font-semibold">{t.about.certifications}</h4>
-									<p className="text-sm text-muted-foreground">
+									<p className="text-sm lg:text-base text-muted-foreground">
 										{profile.stats.certificationsCount}
 									</p>
 								</CardContent>
