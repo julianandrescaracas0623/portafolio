@@ -30,7 +30,7 @@ export const profile = {
 	phone: '+573043432942',
 	email: 'andrescaracas0623@gmail.com',
 	image: '/images/FOTO_DEV.png',
-	cv: '/cv.pdf',
+	cv: '/CVs/JULIAN_ANDRES_CARACAS_CV.pdf',
 	stats: {
 		experienceYears: '1+',
 		certificationsCount: '7',
@@ -51,6 +51,10 @@ export const siteConfig = {
 		{ key: 'certificates', href: '/certificates' },
 		{ key: 'contact', href: '/contact' },
 	] as const,
+	/** Desktop primary links (Contact stays as CTA button). */
+	primaryNavKeys: ['home', 'about', 'projects', 'experience'] as const,
+	/** Desktop "More" dropdown. */
+	moreNavKeys: ['education', 'skills', 'certificates'] as const,
 	links: {
 		github: 'https://github.com/julianandrescaracas0623',
 		linkedin: 'https://www.linkedin.com/in/julian-andres-caracas-sanchez-23886b237/',
