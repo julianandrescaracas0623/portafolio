@@ -1,31 +1,32 @@
-# Portafolio — Julian Andrés Caracas
+# Portafolio — Julián Andrés Caracas
 
-Portafolio web personal de **Julian Andrés Caracas**, Desarrollador de Software e Ingeniero de Sistemas. Sitio bilingüe (ES/EN) con información profesional, experiencia, habilidades, certificados y contacto.
+Portafolio web personal de **Julián Andrés Caracas**, Desarrollador de Software e Ingeniero de Sistemas. Sitio bilingüe (ES/EN) con información profesional, experiencia, habilidades, certificados y contacto.
 
 ## Enlaces
 
 - **GitHub:** [julianandrescaracas0623](https://github.com/julianandrescaracas0623)
-- **LinkedIn:** [Julian Andrés Caracas Sánchez](https://www.linkedin.com/in/julian-andres-caracas-sanchez-23886b237/)
+- **LinkedIn:** [Julián Andrés Caracas Sánchez](https://www.linkedin.com/in/julianandrescaracas/)
 - **Email:** andrescaracas0623@gmail.com
 - **WhatsApp:** [+57 304 343 2942](https://wa.me/573043432942)
 
 ## Características
 
-- Diseño responsive con tema oscuro
-- Interfaz bilingüe (español / inglés)
-- Secciones: Inicio, Sobre mí, Educación, Habilidades, Experiencia, Proyectos, Certificados y Contacto
-- Certificados con vista previa, visualización y descarga de PDF
-- Exportación estática (`output: 'export'`) lista para desplegar en GitHub Pages, Vercel, Netlify, etc.
-- Animaciones con Framer Motion y escena 3D en el hero (Three.js / Vanta)
+- Portada de una sola página con anclas: inicio, sobre mí, experiencia, proyectos, habilidades, formación, certificados y contacto
+- Interfaz bilingüe (español / inglés) con preferencia guardada en el navegador
+- Mapa de sistemas animado en el hero, con respeto a `prefers-reduced-motion`
+- Experiencia en línea de tiempo y filtro de habilidades por área
+- Una página de caso de estudio por proyecto en `/projects/<slug>`, con diagrama de arquitectura
+- Certificados enlazados a su PDF
+- Exportación estática (`output: 'export'`) lista para GitHub Pages, Vercel o Netlify
 
 ## Stack tecnológico
 
 - **Framework:** Next.js 15 (App Router)
 - **Lenguaje:** TypeScript
-- **Estilos:** Tailwind CSS
-- **UI:** Radix UI + componentes shadcn/ui
-- **Animaciones:** Framer Motion
-- **3D:** Three.js, React Three Fiber, Vanta
+- **Estilos:** Tailwind CSS, sin librería de componentes
+- **Tipografías:** Space Grotesk, Inter e IBM Plex Mono vía `next/font`
+
+Sin dependencias de runtime más allá de React y Next: el rediseño retiró Three.js, Vanta, Framer Motion, Radix UI y shadcn/ui.
 
 ## Inicio rápido
 
@@ -38,7 +39,7 @@ Portafolio web personal de **Julian Andrés Caracas**, Desarrollador de Software
 
 ```bash
 git clone <url-de-tu-repositorio>
-cd Engineering_Student_Portfolio
+cd portafolio
 npm install
 npm run dev
 ```
@@ -58,13 +59,24 @@ Abre [http://localhost:3000](http://localhost:3000) en el navegador.
 
 La mayor parte del contenido se configura en un solo archivo:
 
-| Qué editar              | Archivo / carpeta                    |
-| ----------------------- | ------------------------------------ |
-| Datos personales        | `lib/constants.ts`                   |
-| Textos de la interfaz   | `lib/i18n/translations.ts`           |
-| Foto de perfil y CV     | `public/profile.jpg`, `public/cv.pdf` |
-| PDFs de certificados    | `public/certificate-files/`          |
-| Colores y tema          | `app/globals.css`, `tailwind.config.ts` |
+| Qué editar                               | Archivo / carpeta                       |
+| ---------------------------------------- | --------------------------------------- |
+| Perfil, experiencia, proyectos, formación | `lib/constants.ts`                      |
+| Textos de la interfaz                     | `lib/i18n/translations.ts`              |
+| CV en PDF                                 | `public/CVs/`                           |
+| PDFs de certificados                      | `public/certificate-files/`             |
+| Colores, tipografías y animaciones        | `app/globals.css`, `tailwind.config.ts` |
+| Diagrama de arquitectura                  | `components/site/architecture.tsx`      |
+
+Todo el contenido del sitio vive en `lib/constants.ts`. Cada texto visible es un objeto `{ es, en }`,
+así que añadir o corregir información no requiere tocar los componentes.
+
+### Contenido pendiente
+
+Algunos campos están marcados con `[AÑADIR: ...]` en `lib/constants.ts`. Son métricas y datos
+que solo tú puedes aportar (alcance de la plataforma IAM, usuarios atendidos en cada puesto,
+y el caso de estudio completo de Gestión Documental). Busca `AÑADIR` en el repositorio para
+encontrarlos todos.
 
 Para añadir un certificado con PDF:
 
@@ -74,27 +86,36 @@ Para añadir un certificado con PDF:
 
 ```typescript
 {
-  title: 'Nombre del curso',
+  title: { es: 'Nombre del curso', en: 'Course name' },
   issuer: 'Institución',
-  date: '2024',
   pdf: '/certificate-files/nombre.pdf',
-  image: '/certificate-files/nombre.jpg',
 }
 ```
 
 ## Estructura del proyecto
 
 ```
-app/                  # Páginas (App Router)
-components/           # Componentes React
-  certificates/       # Tarjetas de certificados
-  home/               # Secciones del inicio
-  layout/             # Navbar, footer
-  ui/                 # Componentes reutilizables
+app/
+  page.tsx                 # Portada de una página
+  projects/[slug]/page.tsx # Caso de estudio por proyecto (export estático)
+  layout.tsx, globals.css
+components/
+  language-provider.tsx    # Contexto ES/EN
+  site/                    # Secciones y primitivas del sitio
+    primitives.tsx         # Section, Chips, Flow, Callout, iconos
+    header.tsx             # Cabecera de portada y de proyecto
+    hero.tsx, node-map.tsx # Hero y mapa de sistemas animado
+    experience.tsx         # Línea de tiempo
+    projects.tsx           # Tarjetas de proyecto
+    skills.tsx             # Filtro por área
+    education.tsx          # Formación y certificados
+    contact.tsx
+    project-detail.tsx     # Plantilla del caso de estudio
+    architecture.tsx       # Diagrama de AssetControl
 lib/
-  constants.ts        # Datos del portafolio
-  i18n/               # Traducciones ES/EN
-public/               # Assets estáticos (imágenes, PDFs, CV)
+  constants.ts             # Todo el contenido del sitio
+  i18n/                    # Traducciones y utilidades ES/EN
+public/                    # Imágenes, PDFs y CV
 ```
 
 ## Despliegue en GitHub Pages
@@ -137,8 +158,11 @@ El proyecto genera archivos estáticos en la carpeta `out/` al ejecutar `npm run
 
 ## Créditos
 
-Este portafolio está basado en la plantilla [Engineering Student Portfolio](https://github.com/niladri-1/Engineering_Student_Portfolio) de **Niladri Chatterjee**, licenciada bajo [MIT License](https://opensource.org/licenses/MIT).
+Las primeras versiones de este portafolio partieron de la plantilla
+[Engineering Student Portfolio](https://github.com/niladri-1/Engineering_Student_Portfolio) de
+**Niladri Chatterjee**, licenciada bajo [MIT License](https://opensource.org/licenses/MIT).
+El rediseño actual es original y ya no conserva código de esa plantilla.
 
 ## Licencia
 
-El código de la plantilla original se distribuye bajo licencia MIT. Las modificaciones y el contenido personal de este repositorio pertenecen a Julian Andrés Caracas.
+El diseño, el código y el contenido de este repositorio pertenecen a Julián Andrés Caracas.

@@ -1,52 +1,55 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Outfit, Source_Sans_3 } from 'next/font/google';
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from 'next/font/google';
 
-import { ThemeProvider } from '@/components/theme-provider';
 import { LanguageProvider } from '@/components/language-provider';
-import { Navbar } from '@/components/layout/navbar';
-import { Footer } from '@/components/layout/footer';
-import { profile } from '@/lib/constants';
+import { profile, siteConfig } from '@/lib/constants';
 import { getAssetUrl } from '@/lib/public-url';
 
-const outfit = Outfit({
+const display = Space_Grotesk({
 	subsets: ['latin'],
+	weight: ['500', '700'],
 	variable: '--font-display',
 	display: 'swap',
 });
 
-const sourceSans = Source_Sans_3({
+const sans = Inter({
 	subsets: ['latin'],
+	weight: ['400', '500'],
 	variable: '--font-sans',
 	display: 'swap',
 });
 
+const mono = IBM_Plex_Mono({
+	subsets: ['latin'],
+	weight: ['400', '500'],
+	variable: '--font-mono',
+	display: 'swap',
+});
+
 export const metadata: Metadata = {
-	title: profile.fullName,
+	metadataBase: new URL(siteConfig.url),
+	title: `${profile.fullName} — Software Engineer`,
 	description: profile.bio.es,
+	openGraph: {
+		title: `${profile.fullName} — Software Engineer`,
+		description: profile.bio.es,
+		url: siteConfig.url,
+		siteName: profile.fullName,
+		locale: 'es_CO',
+		type: 'website',
+	},
 	icons: {
 		icon: getAssetUrl('/images/favicon.png'),
 		shortcut: getAssetUrl('/images/favicon.png'),
 	},
 };
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="es" suppressHydrationWarning>
-			<body className={`${outfit.variable} ${sourceSans.variable} font-sans`}>
-				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-					<LanguageProvider>
-						<div className="relative min-h-screen flex flex-col">
-							<Navbar />
-							<main className="flex-grow pt-16">{children}</main>
-							<Footer />
-						</div>
-					</LanguageProvider>
-				</ThemeProvider>
+		<html lang="es">
+			<body className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+				<LanguageProvider>{children}</LanguageProvider>
 			</body>
 		</html>
 	);
