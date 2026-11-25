@@ -29,10 +29,10 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
-	title: `${profile.fullName} — Software Engineer`,
+	title: `${profile.fullName} — Desarrollador de Software`,
 	description: profile.bio.es,
 	openGraph: {
-		title: `${profile.fullName} — Software Engineer`,
+		title: `${profile.fullName} — Desarrollador de Software`,
 		description: profile.bio.es,
 		url: siteConfig.url,
 		siteName: profile.fullName,
