@@ -4,8 +4,8 @@ export const profile = {
 	fullName: 'Julián Andrés Caracas',
 	initials: 'JAC',
 	role: {
-		es: 'Desarrollador de Software · Analista de Soporte TI · IA aplicada al desarrollo',
-		en: 'Software Developer · IT Support Analyst · AI applied to development',
+		es: 'Desarrollador de Software · Full-Stack · IAM y sistemas multi-tenant',
+		en: 'Software Developer · Full-Stack · IAM and multi-tenant systems',
 	} satisfies LocalizedString,
 	status: {
 		es: 'Cartago, Valle del Cauca · Abierto a oportunidades',
